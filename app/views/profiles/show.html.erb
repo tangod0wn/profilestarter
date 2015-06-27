@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<p>
+	<strong>Email:</strong>
+	<%= @profile.user.email %>
+</p>
+
+<strong>Name:</strong>
+	<%= @profile.name %>
+<p>
+
+<strong>Profile:</strong>
+	<%= @profile.profile_pic %>
+<%# image_tag(@profile.pic_url(:thumbnail), :width => 50, :height =>50) %>
+
+<%= image_tag(@profile.profile_pic_url) %>
+
+</p>
+<p>
+
+<strong>Bio:</strong>
+	<%= @profile.bio %>
+</p>
+
+
+<% if current_user.profile == @profile %>
+<%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-warning' 
+%>
+<% end %>
